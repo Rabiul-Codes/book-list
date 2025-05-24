@@ -14,17 +14,21 @@ const router = createBrowserRouter([
     children:[
          {
           path:"/listedBooks",
+          element:<ListedBook></ListedBook>
+         },
+         {
+          path:"/",
              loader: async () => {
              const res = await fetch("data.json");
              if (!res.ok) throw new Error("Failed to load books");
              return res.json();
              },
-          element:<ListedBook></ListedBook>
-         },
-         {
-          path:"/",
           element:<Home></Home>,
          },
+       {
+        path: "/showDetails",
+        element: <ShowDetails></ShowDetails>,
+       },
 
     ]
   },
@@ -33,6 +37,7 @@ import App from './App.jsx'
 import ErrorPage from './Error.jsx';
 import ListedBook from './Components/ListedBook/ListedBook.jsx';
 import Home from './Components/Home/Home.jsx';
+import ShowDetails from './Components/ShowDetails/ShowDetails.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

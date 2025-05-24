@@ -1,9 +1,9 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+
+
+
 
 const ShowDetails = () => {
-    const AllData= useLoaderData();
-    const {id}=AllData;
+       
     return (
         <div>
             <div>

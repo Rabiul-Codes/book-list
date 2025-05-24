@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const Book = ({book}) => {
   const {id,title,author,genre,price,rating,published,img,tags,description,review}=book;
   // console.log(tags)
-
-  const HandelShowDetails=()=>{
-     console.log('clicked',id)
+     const navigate=useNavigate()
+     const HandelShowDetails=()=>{
+     navigate("/showDetails")
   }
     return (
         <div onClick={HandelShowDetails}>
