@@ -14,11 +14,16 @@ const router = createBrowserRouter([
     children:[
          {
           path:"/listedBooks",
+             loader: async () => {
+             const res = await fetch("data.json");
+             if (!res.ok) throw new Error("Failed to load books");
+             return res.json();
+             },
           element:<ListedBook></ListedBook>
          },
          {
           path:"/",
-          element:<Home></Home>
+          element:<Home></Home>,
          },
 
     ]

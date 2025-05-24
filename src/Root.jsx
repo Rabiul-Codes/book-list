@@ -7,13 +7,10 @@ import { Outlet } from "react-router-dom";
 const Root = () => {
     return (
         <div>
-         
-           <Navbar></Navbar>
-        
-          <Outlet></Outlet>
-       
-          <Books></Books>
-        
+         <Navbar></Navbar>
+          <div className="flex flex-col items-center gap-4">
+            <Outlet></Outlet>
+          </div>
         </div>
     );
 };

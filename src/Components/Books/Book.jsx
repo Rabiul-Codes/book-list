@@ -1,27 +1,45 @@
 
 
-const Book = () => {
+
+const Book = ({book}) => {
+  const {id,title,author,genre,price,rating,published,img,tags,description,review}=book;
+  // console.log(tags)
+
+  const HandelShowDetails=()=>{
+     console.log('clicked',id)
+  }
     return (
-        <div>
-            <div className="card bg-base-100 w-96 shadow-sm">
+        <div onClick={HandelShowDetails}>
+            <div className="card bg-base-300 w-96 h-[500px] shadow-lg">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
+      src={img}
+      alt="book" />
   </figure>
   <div className="card-body">
     <h2 className="card-title">
-      Card Title
-      <div className="badge badge-secondary">NEW</div>
+    {title}
+      <div className="badge badge-secondary">{author}</div>
     </h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <p>{review}</p>
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div>
-      <div className="badge badge-outline">Products</div>
+    
+     <div className="flex gap-1">
+      <hr className="border-t-2 border-red-500 my-4" />
+       <div>
+       </div>
+             {
+            tags.map((tag,i) =><div key={i} className="badge badge-outline font-semibold 
+              text-xl text-[#23BE0A] border-none px-4  bg-[#235a0a0d]">{tag}</div>)
+          }
+     </div>
+     
+      <div className="badge badge-outline">{price}$</div>
     </div>
   </div>
 </div>
         </div>
+
     );
 };
 
